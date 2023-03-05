@@ -1,0 +1,133 @@
+<html>
+<head>
+    <meta charset="UTF-8">
+    <title>Estadísticas de Docker</title>
+    <style>
+    .Titulo{
+        text-align: center;
+        font-family: Arial, sans-serif;
+    }
+    .titulocontenedores{
+        font-family: Arial, sans-serif;
+    }
+    .campo0 {  /* id */
+        width: 9%;
+        display: inline-block;
+        font-family: Arial, sans-serif;
+    }
+    .campo1 { /* nombre */
+        width: 7%;
+        display: inline-block;
+        font-family: Arial, sans-serif;
+    }
+    .campo2 { /* cpu */
+        width: 5%;
+        display: inline-block;
+        font-family: Arial, sans-serif;
+    }
+    .campo3 { /* mem usage/ */
+        width: 5.5%;
+        display: inline-block;
+        font-family: Arial, sans-serif;
+    }
+    .campo4 { /* barra 1 */
+        width: 1%;
+        display: inline-block;
+        font-family: Arial, sans-serif;
+    }
+    .campo5 { /* Limit */
+        width: 7%;
+        display: inline-block;
+        font-family: Arial, sans-serif;
+    }
+    .campo6 { /* mem% */
+        width: 6%;
+        display: inline-block;
+        font-family: Arial, sans-serif;
+    }
+
+    .campo7 { /* NETI/O   1 */
+        width: 4.5%;
+        display: inline-block;
+        font-family: Arial, sans-serif;
+    }
+    .campo8 { /* Barra 2 */
+        width: 1%;
+        display: inline-block;
+        font-family: Arial, sans-serif;
+    }
+
+    .campo9 { /* net I/O   2 */
+        width: 7%;
+        display: inline-block;
+        font-family: Arial, sans-serif;
+    }
+    .campo10 { /* blokio 1 */
+        width: 5%;
+        display: inline-block;
+        font-family: Arial, sans-serif;
+    }
+    .campo11 { /* BARRA 3 */
+        width: 1%;
+        display: inline-block;
+        font-family: Arial, sans-serif;
+    }
+    .campo12 { /* blokio 2 */
+        width: 7%;
+        display: inline-block;
+        font-family: Arial, sans-serif;
+    }
+    .campo13 { /* PIDS */
+        width: 5%;
+        display: inline-block;
+        font-family: Arial, sans-serif;
+    }
+
+
+    .fila {
+    display: flex;
+    flex-direction: row;
+    margin-bottom: -2%;
+}
+
+.fila div {
+    flex-shrink: 0;
+}
+
+
+    </style>
+    
+</head>
+<body>
+<!--     <script>setInterval ('location.reload()', 2500);</script>-->    
+    <br>
+    <h1 class="Titulo">Monitor de sistemas</h1>
+    <div>
+        <h2 class="titulocontenedores">Estadistícas de los contenedores</h2>
+        <h4 style="font-family: Arial, sans-serif; font-weight: bold;">Container-ID&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Nombre&nbsp;&nbsp;&nbsp;&nbsp;
+            CPU %&nbsp;&nbsp;&nbsp;&nbsp;Mem usada / Límite&nbsp;&nbsp;&nbsp;
+            Mem %&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+            Net I/O&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+            Block I/O&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;PIDS</h4>            
+        {% for line in result %}
+            <div class="fila">
+            <div class="campo0"><p>{{ line.split()[0] }}</p></div>
+            <div class="campo1"><p>{{ line.split()[1] }}</p></div>
+            <div class="campo2"><p>{{ line.split()[2] }}</p></div>
+            <div class="campo3"><p>{{ line.split()[3] }}</p></div>
+            <div class="campo4"><p>{{ line.split()[4] }}</p></div>
+            <div class="campo5"><p>{{ line.split()[5] }}</p></div>
+            <div class="campo6"><p>{{ line.split()[6] }}</p></div>
+            <div class="campo7"><p>{{ line.split()[7] }}</p></div>
+            <div class="campo8"><p>{{ line.split()[8] }}</p></div>
+            <div class="campo9"><p>{{ line.split()[9] }}</p></div>
+            <div class="campo10"><p>{{ line.split()[10] }}</p></div>
+            <div class="campo11"><p>{{ line.split()[11] }}</p></div>
+            <div class="campo12"><p>{{ line.split()[12] }}</p></div>
+            <div class="campo13"><p>{{ line.split()[13] }}</p></div>
+            </div>  
+            {% endfor %}
+        
+    </div>
+</body>
+</html>
