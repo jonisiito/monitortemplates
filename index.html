@@ -1,7 +1,7 @@
 <html>
 <head>
     <meta charset="UTF-8">
-    <title>Estadísticas de Docker</title>
+    <title>Monitor</title>
     <style>
     .Titulo{
         text-align: center;
@@ -94,11 +94,24 @@
     flex-shrink: 0;
 }
 
+.container {
+  width: 100%;
+}
+
+.cpuu, .ramm {
+  display: inline-block;
+  width: 30%;
+}
+
 
     </style>
     
 </head>
 <body>
+
+
+
+
 <!--     <script>setInterval ('location.reload()', 2500);</script>-->    
     <br>
     <h1 class="Titulo">Monitor de sistemas</h1>
@@ -128,6 +141,47 @@
             </div>  
             {% endfor %}
         
+    </div>
+    <br><br>
+    <h2 class="titulocontenedores">Estadísticas del sistema</h2>
+    <div>
+        <div>
+                
+            <div class="container">
+            <div class="cpuu"><h4 style="font-family: Arial, sans-serif; font-weight: bold;">Uso de CPU : </h4><!-- <p>{{ cpu }}</p> --><iframe id="cpu_frame" src="http://3.237.171.101/cpu_usage" frameborder="0"></iframe></div>
+            <div class="ramm"><h4 style="font-family: Arial, sans-serif; font-weight: bold;">USO de RAM : </h4> <!-- <p>{{ ram }}</p> --><iframe id="ram_frame" src="http://3.237.171.101/ram_usage" frameborder="0"></iframe></div>
+            </div>
+             <script>
+                    function refresh() {
+                    var cpu_frame = document.getElementById('cpu_frame');
+                    cpu_frame.src = cpu_frame.src;
+
+                    var ram_frame = document.getElementById('ram_frame');
+                    ram_frame.src = ram_frame.src;
+                    }
+                    setInterval("refresh()", 3000);
+                </script>
+
+                
+                
+                <!-- <span id="ram_usage"></span></h4><br>
+
+            <script>
+                var ram_usage = document.getElementById('ram_usage');
+                setInterval(function() {
+                    var xhr = new XMLHttpRequest();
+                    xhr.open('GET', '/ram_usage');
+                    xhr.onload = function() {
+                        ram_usage.textContent = xhr.responseText;
+                    };
+                    xhr.send();
+                }, 2000);
+            </script> -->
+
+     
+                        
+    </div>
+
     </div>
 </body>
 </html>
