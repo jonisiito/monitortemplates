@@ -148,8 +148,8 @@
         <div>
                 
             <div class="container">
-            <div class="cpuu"><h4 style="font-family: Arial, sans-serif; font-weight: bold;">Uso de CPU : </h4><!-- <p>{{ cpu }}</p> --><iframe id="cpu_frame" src="http://"+external_ip+"/cpu_usage" frameborder="0"></iframe></div>
-            <div class="ramm"><h4 style="font-family: Arial, sans-serif; font-weight: bold;">USO de RAM : </h4> <!-- <p>{{ ram }}</p> --><iframe id="ram_frame" src="http://"+external_ip+"/ram_usage" frameborder="0"></iframe></div>
+            <div class="cpuu"><h4 style="font-family: Arial, sans-serif; font-weight: bold;">Uso de CPU : </h4><!-- <p>{{ cpu }}</p> --><iframe id="cpu_frame" src=src={{ external_ip1 }} frameborder="0"></iframe></div>
+            <div class="ramm"><h4 style="font-family: Arial, sans-serif; font-weight: bold;">USO de RAM : </h4> <!-- <p>{{ ram }}</p> --><iframe id="ram_frame" src=src={{ external_ip2 }} frameborder="0"></iframe></div>
             </div>
              <script>
                     function refresh() {
